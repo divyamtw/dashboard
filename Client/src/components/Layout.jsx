@@ -1,12 +1,14 @@
-import React from 'react';
 import Aside from "./Aside.jsx";
-import Dashboard from "../features/dashboard/Dashboard.jsx";
+import {Outlet} from "react-router-dom";
 
 const Layout = () => {
+
     return (
-        <div className="flex">
+        <div className="flex h-screen overflow-hidden">
             <Aside/>
-            <Dashboard/>
+            <div className="flex-1 overflow-auto">
+                <Outlet/>
+            </div>
         </div>
     );
 };
