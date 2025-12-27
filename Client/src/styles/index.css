@@ -1,1 +1,54 @@
 @import "tailwindcss";
+:root {
+    /* Backgrounds */
+    --app-bg: #F8FAFC;
+    --sidebar-bg: #FFFFFF;
+    --card-bg: #FFFFFF;
+
+    /* Borders */
+    --border-color: #E5E7EB;
+
+    /* Primary */
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --primary-fg: #FFFFFF;
+
+    /* Success */
+    --success: #16A34A;
+
+    /* Text */
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6B7280;
+
+    /* Status */
+    --danger: #DC2626;
+    --warning: #D97706;
+    --info: #0284C7;
+
+    /* Optional Accent */
+    --accent-music: #22D3EE;
+}
+
+.dark {
+    /* Backgrounds */
+    --app-bg: #0B0F14;
+    --sidebar-bg: #0F141A;
+    --card-bg: #151B23;
+
+    /* Borders */
+    --border-color: #1F2630;
+
+    /* Primary (same) */
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --primary-fg: #FFFFFF;
+
+    /* Success */
+    --success: #22C55E;
+
+    /* Text */
+    --text-primary: #E5E7EB;
+    --text-secondary: #9CA3AF;
+    --text-muted: #6B7280;
+}
