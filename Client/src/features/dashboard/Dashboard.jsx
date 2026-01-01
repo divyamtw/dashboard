@@ -1,10 +1,8 @@
 import React from 'react';
-import ThemeToggle from "../../components/buttons/ThemeToggle.jsx";
 
 const Dashboard = () => {
-    return (<div>
-        <h1 className="text-white">Dashboard!</h1>
-        <ThemeToggle/>
+    return (<div className="bg-background p-4 h-full rounded-l-2xl">
+        <h1 className="text-red-600 font-bold text-9xl">Dashboard!</h1>
     </div>);
 };
 

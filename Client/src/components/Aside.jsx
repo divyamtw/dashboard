@@ -36,7 +36,7 @@ const Aside = ({width}) => {
         <div className="h-screen flex"
         >
             <aside
-                className="relative bg-zinc-900 text-white flex flex-col items-center  w-full rounded-br-3xl rounded-tr-3xl overflow-hidden"
+                className="relative bg-blue-900 text-white flex flex-col items-center  w-full rounded-br-3xl rounded-tr-3xl overflow-hidden"
                 style={{width: `${width}px`}}
             >
                 <div className="p-4 font-semibold border-b border-zinc-800 ">
@@ -57,22 +57,15 @@ const Aside = ({width}) => {
                                 {link.Name}
                             </NavLink>
                         ))}
-                        <div
-                            className="absolute bottom-0 px-10 py-3 bg-slate-800 w-full flex items-center justify-between h-20">
-                            <NavLink to="/profile" className={({isActive}) =>
-                                `text-white text-xl hover:bg-amber-500 rounded-xl px-16 py-3  ${isActive ? "bg-amber-500 " : "bg-transparent"}`
-                            }>Profile</NavLink>
-                            <button className="px-6 py-1 rounded-2xl bg-red-500">LogOut</button>
-                        </div>
+                        {/*<div*/}
+                        {/*    className="absolute bottom-0 px-10 py-3 bg-slate-800 w-full flex items-center justify-between h-20">*/}
+                        {/*    <NavLink to="/profile" className={({isActive}) =>*/}
+                        {/*        `text-white text-xl hover:bg-amber-500 rounded-xl px-16 py-3 ${isActive ? "bg-amber-500 " : "bg-transparent"}`*/}
+                        {/*    }>Profile</NavLink>*/}
+                        {/*    <button className="px-6 py-1 rounded-2xl bg-red-500">LogOut</button>*/}
+                        {/*</div>*/}
                     </ul>
                 </div>
-
-                {/*/!* DRAG HANDLE *!/*/}
-                {/*<div*/}
-                {/*    onMouseDown={startResizing}*/}
-                {/*    className="absolute top-0 right-0 h-full w-2 cursor-col-resize bg-transparent hover:bg-red-500"*/}
-                {/*/>*/}
-
             </aside>
         </div>
     );

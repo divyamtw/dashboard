@@ -1,16 +1,10 @@
 import {Outlet} from "react-router-dom";
 
-const MainContent = ({width}) => {
-
+const MainContent = () => {
     return (
-        <div
-            className="relative overflow-hidden"
-            style={{width: `${width}px`}}
-        >
-            <div className="h-full overflow-auto">
-                <Outlet/>
-            </div>
-        </div>
+        <main className="flex-1 min-w-0">
+            <Outlet/>
+        </main>
     );
 };
 

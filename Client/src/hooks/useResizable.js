@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import {useState, useRef, useEffect} from "react";
 
-const useResizable = ({ min, max, initial }) => {
+const useResizable = ({min, max, initial}) => {
     const [width, setWidth] = useState(initial);
     const isResizing = useRef(false);
 
@@ -30,7 +30,7 @@ const useResizable = ({ min, max, initial }) => {
         };
     }, []);
 
-    return { width, startResizing };
+    return {width, setWidth, startResizing};
 };
 
 export default useResizable;
