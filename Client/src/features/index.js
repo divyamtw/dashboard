@@ -5,5 +5,6 @@ import Pomodoro from "./pomodoro/Pomodoro.jsx";
 import Task from "./tasks/Task.jsx";
 import Calendar from "./calendar/Calendar.jsx";
 import Login from "./auth/Login.jsx";
+import Signup from "./auth/Signup.jsx";
 
-export {Dashboard, GitHub, Music, Pomodoro, Task, Calendar, Login};
+export {Dashboard, GitHub, Music, Pomodoro, Task, Calendar, Login, Signup};

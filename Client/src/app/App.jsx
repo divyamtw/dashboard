@@ -1,7 +1,7 @@
 import {Route, Routes} from "react-router-dom";
 import Layout from "../components/Layout.jsx";
-import {Calendar, Dashboard, GitHub, Music, Pomodoro, Task, Login} from "../features/index.js";
 import Profile from "../components/Profile.jsx";
+import {Calendar, Dashboard, GitHub, Music, Pomodoro, Task, Login, Signup} from "../features/index.js";
 
 function App() {
     return (
@@ -16,6 +16,7 @@ function App() {
                 <Route path="profile" element={<Profile/>}/>
             </Route>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/Signup' element={<Signup/>}/>
         </Routes>
     );
 }
