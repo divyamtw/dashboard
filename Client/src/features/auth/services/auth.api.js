@@ -16,10 +16,10 @@ export const registerUser = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || "Registration failed"
+        error.response?.data?.message || "Registration failed",
       );
     }
-  }
+  },
 );
 
 export const loginUser = createAsyncThunk(
@@ -30,10 +30,10 @@ export const loginUser = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || "Login failed"
+        error.response?.data?.message || "Login failed",
       );
     }
-  }
+  },
 );
 
 export const logoutUser = createAsyncThunk(
@@ -44,10 +44,10 @@ export const logoutUser = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || "Logout failed"
+        error.response?.data?.message || "Logout failed",
       );
     }
-  }
+  },
 );
 
 export const checkAuth = createAsyncThunk(
@@ -59,5 +59,5 @@ export const checkAuth = createAsyncThunk(
     } catch {
       return thunkAPI.rejectWithValue("Not authenticated");
     }
-  }
+  },
 );

@@ -1,8 +1,14 @@
 import { NavLink, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../features/auth/services/auth.api";
 
 const Aside = ({ width }) => {
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
   const navLinks = [
     {
       Name: "Dashboard",
@@ -47,7 +53,9 @@ const Aside = ({ width }) => {
       >
         <div className="p-6 flex flex-col items-center gap-y-4 border-b border-zinc-800 w-full mb-4">
           <img
-            src={user?.profileImg || "https://ik.imagekit.io/cd0pgs18s/default.jpg"}
+            src={
+              user?.profileImg || "https://ik.imagekit.io/cd0pgs18s/default.jpg"
+            }
             alt="User profile"
             className="w-40 h-40 object-cover rounded-full border-2 border-zinc-700 shadow-xl"
           />
@@ -82,6 +90,13 @@ const Aside = ({ width }) => {
               </NavLink>
             ))}
           </ul>
+        </div>
+        <div className="mt-auto py-5 w-full bg-red-900 hover:bg-red-950 transition-all">
+          <button onClick={handleLogout}
+            className="w-full h-full">
+            <i className="ri-logout-box-r-line mr-2"></i>
+            Logout
+          </button>
         </div>
       </aside>
     </div>

@@ -9,7 +9,7 @@ import {
 const initialState = {
   user: null,
   isAuthenticated: false,
-  isLoading: true, // Start with true to check auth on refresh
+  isLoading: true, 
   error: null,
 };
 

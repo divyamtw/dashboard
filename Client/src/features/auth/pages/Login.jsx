@@ -85,6 +85,23 @@ const Login = () => {
           {isLoading ? "Signing in..." : "Sign In"}
         </button>
       </form>
+      <div className="flex items-center gap-x-2 w-full my-2">
+        <div className="h-[1px] bg-border flex-1"></div>
+        <span className="text-[10px] text-muted-foreground uppercase font-medium">
+          or continue with
+        </span>
+        <div className="h-[1px] bg-border flex-1"></div>
+      </div>
+      <button
+        type="button"
+        onClick={() =>
+          (window.location.href = "http://localhost:3000/auth/github")
+        }
+        className="w-full flex items-center justify-center gap-x-2 bg-zinc-900 text-white rounded-xl py-2 font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98]"
+      >
+        <i className="ri-github-fill text-lg"></i>
+        GitHub
+      </button>
 
       <Link
         to="/Signup"

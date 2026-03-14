@@ -21,10 +21,14 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      required: true,
       trim: true,
       minlength: [6, "Password should be atlease 6 characters long"],
       select: false,
+    },
+    githubId: {
+      type: String,
+      unique: true,
+      sparse: true,
     },
     profileImg: {
       type: String,
