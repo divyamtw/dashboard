@@ -10,6 +10,7 @@ import {
   Task,
   Calendar,
   Weather,
+  PasswordGenerator,
   Login,
   Signup,
 } from "./features/index.js";
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
           {
             path: "weather",
             element: <Weather />,
+          },
+          {
+            path: "password-generator",
+            element: <PasswordGenerator />,
           },
         ],
       },

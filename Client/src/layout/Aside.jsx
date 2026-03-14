@@ -40,6 +40,11 @@ const Aside = ({ width }) => {
       href: "/weather",
       logo: <i className="ri-cloud-fill"></i>,
     },
+    {
+      Name: "Password Gen",
+      href: "/password-generator",
+      logo: <i className="ri-key-2-line"></i>,
+    },
   ];
 
   const baseCss =
@@ -66,7 +71,7 @@ const Aside = ({ width }) => {
             <NavLink
               to="/profile"
               className={({ isActive }) =>
-                `${baseCss} ${isActive ? "bg-secondary border-none" : "bg-transparent border-border text-muted-foreground hover:text-foreground"}`
+                `${baseCss} ${isActive ? "bg-primary text-primary-foreground border-none" : "bg-transparent text-muted-foreground hover:text-foreground border-border/50"}`
               }
             >
               <i className="ri-user-settings-line mr-1 text-sm"></i>
@@ -92,8 +97,10 @@ const Aside = ({ width }) => {
           </ul>
         </div>
         <div className="mt-auto py-5 w-full bg-destructive/10 hover:bg-destructive/20 border-t border-border transition-all text-destructive font-bold">
-          <button onClick={handleLogout}
-            className="w-full h-full flex items-center justify-center gap-2">
+          <button
+            onClick={handleLogout}
+            className="w-full h-full flex items-center justify-center gap-2"
+          >
             <i className="ri-logout-box-r-line"></i>
             Logout
           </button>
