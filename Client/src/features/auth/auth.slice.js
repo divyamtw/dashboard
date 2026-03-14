@@ -9,7 +9,8 @@ import {
 const initialState = {
   user: null,
   isAuthenticated: false,
-  isLoading: true, 
+  isLoading: true,
+  isInitialized: false,
   error: null,
 };
 
@@ -65,11 +66,13 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isAuthenticated = true;
         state.user = action.payload.user;
+        state.isInitialized = true;
       })
       .addCase(checkAuth.rejected, (state) => {
         state.isLoading = false;
         state.isAuthenticated = false;
         state.user = null;
+        state.isInitialized = true;
       });
   },
 });

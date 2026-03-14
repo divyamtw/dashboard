@@ -137,7 +137,39 @@
 }
 
 @layer components {
-    /* Existing components... */
+    .dashboard-card {
+        @apply bg-card border border-border rounded-2xl p-4 transition-all duration-300;
+    }
+
+    .dashboard-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px hsl(var(--primary) / 0.1);
+    }
+
+    .glow-text {
+        text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+    }
+
+    .nav-item {
+        @apply px-6 py-3 rounded-xl text-muted-foreground transition-all duration-200 cursor-pointer text-sm font-medium;
+    }
+
+    .nav-item:hover {
+        @apply bg-secondary text-foreground;
+    }
+
+    .nav-item.active {
+        @apply bg-primary text-primary-foreground;
+        box-shadow: 0 0 12px hsl(var(--primary) / 0.4);
+    }
+
+    .progress-bar {
+        @apply h-1 bg-muted rounded-full overflow-hidden;
+    }
+
+    .progress-bar-fill {
+        @apply h-full bg-primary rounded-full transition-all duration-500;
+    }
 
     .loader {
         @apply border-2 border-primary/20 border-t-primary rounded-full animate-spin;
@@ -157,5 +189,12 @@
 }
 
 @layer utilities {
-    /* Existing utilities... */
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: hsl(var(--border));
+        border-radius: 999px;
+    }
 }

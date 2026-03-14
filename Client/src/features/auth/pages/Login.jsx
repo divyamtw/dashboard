@@ -4,7 +4,7 @@ import { loginUser } from "../services/auth.api";
 import { clearError } from "../auth.slice.js";
 import useZodForm from "../../../shared/hooks/useZodForm";
 import { loginSchema } from "../../../shared/validations/schemas";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../../shared/components/Loader";
 
 const Login = () => {
@@ -13,6 +13,7 @@ const Login = () => {
   const { isLoading, error, isAuthenticated } = useSelector(
     (state) => state.auth,
   );
+  const [isGitHubAuthLoading, setIsGitHubAuthLoading] = useState(false);
 
   const {
     register,
@@ -95,13 +96,21 @@ const Login = () => {
       </div>
       <button
         type="button"
-        onClick={() =>
-          (window.location.href = "http://localhost:3000/auth/github")
-        }
-        className="w-full flex items-center justify-center gap-x-2 bg-secondary text-foreground rounded-xl py-2 font-medium text-sm transition-all hover:bg-secondary/80 active:scale-[0.98] border border-border"
+        disabled={isGitHubAuthLoading || isLoading}
+        onClick={() => {
+          setIsGitHubAuthLoading(true);
+          window.location.href = "http://localhost:3000/auth/github";
+        }}
+        className="w-full flex items-center justify-center gap-x-2 bg-secondary text-foreground rounded-xl py-2 font-medium text-sm transition-all hover:bg-secondary/80 active:scale-[0.98] border border-border disabled:opacity-50"
       >
-        <i className="ri-github-fill text-lg"></i>
-        GitHub
+        {isGitHubAuthLoading ? (
+          <Loader size="sm" />
+        ) : (
+          <>
+            <i className="ri-github-fill text-lg"></i>
+            GitHub
+          </>
+        )}
       </button>
 
       <Link
