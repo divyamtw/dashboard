@@ -9,7 +9,7 @@ const getInitialWidth = () => {
     return saved ? Number(saved) : window.innerWidth * 0.2;
 };
 
-const Layout = () => {
+const MainLayout = () => {
     const {width, setWidth, startResizing} = useResizable({
         min: 300,
         max: window.innerWidth * 0.50,
@@ -21,7 +21,7 @@ const Layout = () => {
     }, [width]);
 
     return (
-        <div className="relative flex h-screen overflow-hidden bg-amber-950">
+        <div className="relative flex h-screen overflow-hidden bg-background">
             <button
                 className="absolute top-3 left-6 z-10 outline-none bg-red-400 text-gray-950 font-mono font-bold text-xl px-8 py-3 capitalize rounded-r-2xl active:scale-95 -translate-x-30 hover:-translate-x-7 transition-transform duration-100"
                 onClick={() => setWidth(500)}
@@ -41,4 +41,4 @@ const Layout = () => {
     );
 };
 
-export default Layout;
+export default MainLayout;

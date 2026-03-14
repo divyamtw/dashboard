@@ -80,9 +80,9 @@ const Login = () => {
             >
                 Don&apos;t have an account? Sign up
             </Link>
+
         </div>
-    )
-        ;
+    );
 };
 
 export default Login;

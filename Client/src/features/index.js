@@ -4,7 +4,17 @@ import Music from "./music/Music.jsx";
 import Pomodoro from "./pomodoro/Pomodoro.jsx";
 import Task from "./tasks/Task.jsx";
 import Calendar from "./calendar/Calendar.jsx";
-import Login from "./auth/Login.jsx";
-import Signup from "./auth/Signup.jsx";
+import Weather from "./weather/Weather.jsx";
+import { Login, Signup } from "./auth/pages/index.js";
 
-export {Dashboard, GitHub, Music, Pomodoro, Task, Calendar, Login, Signup};
+export {
+  Dashboard,
+  GitHub,
+  Music,
+  Pomodoro,
+  Task,
+  Calendar,
+  Weather,
+  Login,
+  Signup,
+};
