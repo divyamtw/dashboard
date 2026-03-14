@@ -43,30 +43,30 @@ const Aside = ({ width }) => {
   ];
 
   const baseCss =
-    "min-h-10 w-52 py-2 flex items-center justify-center active:scale-105 scale-110 active:transition-all duration-50 font-semibold rounded-full border text-white hover:bg-zinc-600";
+    "min-h-10 w-52 py-2 flex items-center justify-center active:scale-105 scale-110 active:transition-all duration-50 font-semibold rounded-full border transition-colors";
 
   return (
     <div className="h-screen flex">
       <aside
-        className="relative bg-zinc-900 text-white flex flex-col items-center  w-full rounded-br-3xl rounded-tr-3xl overflow-hidden"
+        className="relative bg-background text-foreground flex flex-col items-center  w-full rounded-br-3xl rounded-tr-3xl overflow-hidden border-r border-border"
         style={{ width: `${width}px` }}
       >
-        <div className="p-6 flex flex-col items-center gap-y-4 border-b border-zinc-800 w-full mb-4">
+        <div className="p-6 flex flex-col items-center gap-y-4 border-b border-border w-full mb-4">
           <img
             src={
               user?.profileImg || "https://ik.imagekit.io/cd0pgs18s/default.jpg"
             }
             alt="User profile"
-            className="w-40 h-40 object-cover rounded-full border-2 border-zinc-700 shadow-xl"
+            className="w-40 h-40 object-cover rounded-full border-2 border-border shadow-2xl"
           />
           <div className="flex flex-col items-center gap-y-2">
-            <span className="text-xl font-bold text-white capitalize">
+            <span className="text-xl font-bold text-foreground capitalize">
               {user?.username || "Guest"}
             </span>
             <NavLink
               to="/profile"
               className={({ isActive }) =>
-                `${baseCss} ${isActive ? "bg-zinc-600 border-none" : "bg-transparent border-zinc-700"}`
+                `${baseCss} ${isActive ? "bg-secondary border-none" : "bg-transparent border-border text-muted-foreground hover:text-foreground"}`
               }
             >
               <i className="ri-user-settings-line mr-1 text-sm"></i>
@@ -75,14 +75,14 @@ const Aside = ({ width }) => {
           </div>
         </div>
 
-        <div className="p-4 text-sm text-zinc-300">
+        <div className="p-4 text-sm">
           <ul className="flex flex-col items-center  w-full gap-y-4 mt-8 select-none">
             {navLinks.map((link, i) => (
               <NavLink
                 key={i}
                 to={link.href}
                 className={({ isActive }) =>
-                  `${baseCss} ${isActive ? "bg-zinc-600 border-none" : "bg-transparent"}`
+                  `${baseCss} ${isActive ? "bg-primary text-primary-foreground border-none" : "bg-transparent text-muted-foreground hover:text-foreground border-border/50"}`
                 }
               >
                 <span className="mr-1">{link.logo}</span>
@@ -91,10 +91,10 @@ const Aside = ({ width }) => {
             ))}
           </ul>
         </div>
-        <div className="mt-auto py-5 w-full bg-red-900 hover:bg-red-950 transition-all">
+        <div className="mt-auto py-5 w-full bg-destructive/10 hover:bg-destructive/20 border-t border-border transition-all text-destructive font-bold">
           <button onClick={handleLogout}
-            className="w-full h-full">
-            <i className="ri-logout-box-r-line mr-2"></i>
+            className="w-full h-full flex items-center justify-center gap-2">
+            <i className="ri-logout-box-r-line"></i>
             Logout
           </button>
         </div>

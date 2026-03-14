@@ -5,6 +5,7 @@ import { clearError } from "../auth.slice";
 import useZodForm from "../../../shared/hooks/useZodForm";
 import { registerSchema } from "../../../shared/validations/schemas";
 import { useNavigate, Link } from 'react-router-dom';
+import Loader from "../../../shared/components/Loader";
 
 const Signup = () => {
     const dispatch = useDispatch();
@@ -91,7 +92,7 @@ const Signup = () => {
                     disabled={isLoading}
                     className="w-full bg-primary text-primary-foreground rounded-xl py-2 mt-1 font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100"
                 >
-                    {isLoading ? "Creating account..." : "Sign Up"}
+                    {isLoading ? <Loader size="sm" className="border-t-primary-foreground border-primary-foreground/20" /> : "Sign Up"}
                 </button>
 
             </form>

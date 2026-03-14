@@ -5,6 +5,7 @@ import { clearError } from "../auth.slice.js";
 import useZodForm from "../../../shared/hooks/useZodForm";
 import { loginSchema } from "../../../shared/validations/schemas";
 import { useEffect } from "react";
+import Loader from "../../../shared/components/Loader";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -82,7 +83,7 @@ const Login = () => {
           disabled={isLoading}
           className="w-full bg-primary text-primary-foreground rounded-xl py-2 mt-1 font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100"
         >
-          {isLoading ? "Signing in..." : "Sign In"}
+          {isLoading ? <Loader size="sm" className="border-t-primary-foreground border-primary-foreground/20" /> : "Sign In"}
         </button>
       </form>
       <div className="flex items-center gap-x-2 w-full my-2">
@@ -97,7 +98,7 @@ const Login = () => {
         onClick={() =>
           (window.location.href = "http://localhost:3000/auth/github")
         }
-        className="w-full flex items-center justify-center gap-x-2 bg-zinc-900 text-white rounded-xl py-2 font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98]"
+        className="w-full flex items-center justify-center gap-x-2 bg-secondary text-foreground rounded-xl py-2 font-medium text-sm transition-all hover:bg-secondary/80 active:scale-[0.98] border border-border"
       >
         <i className="ri-github-fill text-lg"></i>
         GitHub

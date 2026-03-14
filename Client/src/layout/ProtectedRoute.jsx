@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loader from "../shared/components/Loader";
 
 const ProtectedRoute = () => {
   const { isAuthenticated, isLoading } = useSelector((state) => state.auth);
@@ -7,7 +8,7 @@ const ProtectedRoute = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
-        Loading...
+        <Loader size="lg" />
       </div>
     );
   }
