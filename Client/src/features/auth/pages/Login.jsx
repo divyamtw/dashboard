@@ -23,7 +23,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/"); // redirect on login
+      navigate("/dashboard"); // redirect on login
     }
   }, [isAuthenticated, navigate]);
 
@@ -119,10 +119,16 @@ const Login = () => {
       </button>
 
       <Link
-        to="/Signup"
+        to="/signup"
         className="text-sm text-muted-foreground hover:text-primary transition-colors"
       >
         Don&apos;t have an account? Sign up
+      </Link>
+      <Link
+        to="/"
+        className="text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors mt-1"
+      >
+        ← Back to Home
       </Link>
     </div>
   );

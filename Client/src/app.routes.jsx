@@ -2,7 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "./layout/MainLayout.jsx";
 import AuthLayout from "./layout/AuthLayout.jsx";
 import ProtectedRoute from "./layout/ProtectedRoute.jsx";
+import PublicRoute from "./layout/PublicRoute.jsx";
 import {
+  Landing,
   Dashboard,
   GitHub,
   Music,
@@ -18,6 +20,33 @@ import {
 import Profile from "./layout/Profile.jsx";
 
 const router = createBrowserRouter([
+  // Public pages — redirect to /dashboard if already logged in
+  {
+    path: "/",
+    element: <PublicRoute />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: "/",
+        element: <AuthLayout />,
+        children: [
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "signup",
+            element: <Signup />,
+          },
+        ],
+      },
+    ],
+  },
+
+  // Protected app pages (require login)
   {
     path: "/",
     element: <ProtectedRoute />,
@@ -27,7 +56,7 @@ const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
           {
-            index: true,
+            path: "dashboard",
             element: <Dashboard />,
           },
           {
@@ -67,20 +96,6 @@ const router = createBrowserRouter([
             element: <Kanban />,
           },
         ],
-      },
-    ],
-  },
-  {
-    path: "/",
-    element: <AuthLayout />,
-    children: [
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "signup",
-        element: <Signup />,
       },
     ],
   },

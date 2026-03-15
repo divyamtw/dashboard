@@ -68,7 +68,7 @@ const Aside = ({ width }) => {
                 }
               >
                 <span className="mr-1">{feature.logo}</span>
-                {feature.Name}
+                {feature.name}
               </NavLink>
             ))}
           </ul>

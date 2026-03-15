@@ -1,3 +1,4 @@
+import Landing from "./landing/Landing.jsx";
 import Dashboard from "./dashboard/Dashboard.jsx";
 import GitHub from "./github/GitHub.jsx";
 import Music from "./music/Music.jsx";
@@ -10,6 +11,7 @@ import Kanban from "./Kanban/Kanban.jsx";
 import { Login, Signup } from "./auth/pages/index.js";
 
 export {
+  Landing,
   Dashboard,
   GitHub,
   Music,
