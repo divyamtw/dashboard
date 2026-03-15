@@ -1,6 +1,7 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../features/auth/services/auth.api";
+import { featuresList } from "../features/featuresList.jsx";
 
 const Aside = ({ width }) => {
   const dispatch = useDispatch();
@@ -9,48 +10,6 @@ const Aside = ({ width }) => {
   const handleLogout = () => {
     dispatch(logoutUser());
   };
-  const featuresList = [
-    {
-      Name: "Dashboard",
-      href: "/",
-      logo: <i className="ri-dashboard-fill"></i>,
-    },
-    {
-      Name: "Music",
-      href: "/music",
-      logo: <i className="ri-music-2-line"></i>,
-    },
-    {
-      Name: "GitHub",
-      href: "/github",
-      logo: <i className="ri-github-line"></i>,
-    },
-    {
-      Name: "Calendar",
-      href: "/calendar",
-      logo: <i className="ri-calendar-line"></i>,
-    },
-    {
-      Name: "Task",
-      href: "/task",
-      logo: <i className="ri-task-line"></i>,
-    },
-    {
-      Name: "Weather",
-      href: "/weather",
-      logo: <i className="ri-cloud-fill"></i>,
-    },
-    {
-      Name: "Password Gen",
-      href: "/password-generator",
-      logo: <i className="ri-key-2-line"></i>,
-    },
-    {
-      Name: "Kanban",
-      href: "/kanban",
-      logo: <i className="ri-kanban-view-2"></i>,
-    },
-  ];
 
   const baseCss =
     "min-h-10 w-52 py-2 flex items-center justify-center active:scale-105 scale-110 active:transition-all duration-50 font-semibold rounded-full border transition-colors select-none";
@@ -79,6 +38,8 @@ const Aside = ({ width }) => {
             alt="User profile"
             className="w-40 h-40 object-cover rounded-full border-2 border-border shadow-2xl"
           />
+
+          {/* Profile Btn */}
           <div className="flex flex-col items-center gap-y-2">
             <span className="text-xl font-bold text-foreground capitalize">
               {user?.username || "Guest"}
@@ -95,6 +56,7 @@ const Aside = ({ width }) => {
           </div>
         </div>
 
+        {/* Features List  */}
         <div className="flex-1 p-4 text-sm">
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-3 w-full mt-3">
             {featuresList.map((feature, i) => (
@@ -111,6 +73,8 @@ const Aside = ({ width }) => {
             ))}
           </ul>
         </div>
+
+        {/* Logout Btn */}
         <div className="shrink-0 py-5 w-full bg-destructive/10 hover:bg-destructive/20 border-t border-border transition-all text-destructive font-bold select-none">
           <button
             onClick={handleLogout}
